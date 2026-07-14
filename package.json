@@ -1,0 +1,15 @@
+{
+  "name": "ironlog",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "IRONLOG fitness tracker, AI coach, email login, and Razorpay subscription checkout.",
+  "scripts": {
+    "dev": "vercel dev",
+    "start": "vercel dev",
+    "check": "node --check api/coach.js && node --check api/analyze-food.js && node --check api/create-payment.js && node --check api/verify-payment.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

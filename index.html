@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IRONLOG - AI Fitness Coach</title>
+  <meta name="description" content="Track meals, workouts, sleep, progress photos, and get AI coaching with IRONLOG.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="IRONLOG home">IRON<span>LOG</span></a>
+    <nav class="navlinks" aria-label="Primary">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#app">Dashboard</a>
+    </nav>
+    <button class="btn small" data-open-auth>Start free</button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">30 days free - then ₹199/month</p>
+        <h1>IRONLOG</h1>
+        <p class="lead">An AI fitness tracker for meals, macros, recovery, workouts, progress photos, and coaching in one dashboard.</p>
+        <div class="hero-actions">
+          <button class="btn" data-open-auth>Start free trial</button>
+          <a class="btn ghost" href="#app">View dashboard</a>
+        </div>
+      </div>
+      <div class="hero-panel" aria-label="IRONLOG live preview">
+        <div class="pulse-line"></div>
+        <div class="hero-metrics">
+          <div><strong>184g</strong><span>Protein logged</span></div>
+          <div><strong>7.4h</strong><span>Sleep</span></div>
+          <div><strong>82%</strong><span>Recovery</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="section-head">
+        <p class="eyebrow">Built from your IronLog prototype</p>
+        <h2>Everything a serious tracker needs.</h2>
+      </div>
+      <div class="feature-grid">
+        <article><span>01</span><h3>Email Login</h3><p>Users enter a mail ID and receive a secure magic link.</p></article>
+        <article><span>02</span><h3>Meal Photo Scan</h3><p>Upload food photos and estimate calories, macros, fiber, and key nutrients.</p></article>
+        <article><span>03</span><h3>Dashboard</h3><p>Daily calories, protein, carbs, fat, recovery, workouts, and photos in one place.</p></article>
+        <article><span>04</span><h3>AI Coach</h3><p>Ask training, diet, recovery, and goal questions with context from your logs.</p></article>
+        <article><span>05</span><h3>Progress Photos</h3><p>Add transformation photos and notes for visual tracking.</p></article>
+        <article><span>06</span><h3>Razorpay</h3><p>One-month free trial, then ₹199 monthly or ₹2000 yearly checkout.</p></article>
+      </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+      <div>
+        <p class="eyebrow">Simple pricing</p>
+        <h2>Start free. Upgrade when the trial ends.</h2>
+      </div>
+      <div class="price-grid">
+        <article class="price-card">
+          <span>Trial</span>
+          <strong>₹0</strong>
+          <p>Full access for 30 days after email login.</p>
+          <button class="btn block" data-open-auth>Start</button>
+        </article>
+        <article class="price-card featured">
+          <span>Monthly</span>
+          <strong>₹199</strong>
+          <p>Pay every month through Razorpay.</p>
+          <button class="btn block" data-plan="monthly">Pay monthly</button>
+        </article>
+        <article class="price-card">
+          <span>Yearly</span>
+          <strong>₹2000</strong>
+          <p>Best value for committed users.</p>
+          <button class="btn block" data-plan="yearly">Pay yearly</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="app-shell" id="app">
+      <aside class="sidebar">
+        <div class="user-box">
+          <span id="auth-state">Not signed in</span>
+          <button class="link-btn" id="auth-action">Login</button>
+        </div>
+        <nav id="tabs" aria-label="App tabs"></nav>
+      </aside>
+      <section class="workspace">
+        <div id="notice"></div>
+        <div id="view"></div>
+      </section>
+    </section>
+  </main>
+
+  <dialog id="auth-dialog" class="dialog">
+    <form method="dialog">
+      <button class="x" value="cancel" aria-label="Close">x</button>
+    </form>
+    <h2>Email login</h2>
+    <p>Enter your mail ID. Supabase sends a magic login link to your inbox.</p>
+    <label>Email address</label>
+    <input id="email-input" type="email" placeholder="you@example.com" autocomplete="email">
+    <button class="btn block" id="send-link">Send login link</button>
+    <div class="form-note" id="auth-message"></div>
+  </dialog>
+</body>
+</html>
